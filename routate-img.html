@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Image Rotate Left-Right</title>
+  <style>
+ 
+    .rotate-img {
+      width: 200px;
+      animation: rotateLeftRight 3s ease-in-out infinite;
+      transform-origin: center;
+    }
+
+    @keyframes rotateLeftRight {
+      0%   { transform: rotate(0deg); }
+      25%  { transform: rotate(15deg); }
+      50%  { transform: rotate(0deg); }
+      75%  { transform: rotate(-15deg); }
+      100% { transform: rotate(0deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <img src="great-result.png" alt="Rotating Image" class="rotate-img" />
+
+</body>
+</html>

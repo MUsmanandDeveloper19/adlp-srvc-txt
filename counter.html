@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Clean Animated Counters</title>
+  <style>
+    body {
+      margin: 0;
+      background: #0e0e0e;
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .counter-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 80px;
+      text-align: center;
+    }
+
+    .counter {
+      font-size: 52px;
+      font-weight: 300;
+      color: #fff;
+    }
+
+    .label {
+      margin-top: 8px;
+      font-size: 16px;
+      color: #ccc;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 768px) {
+      .counter-section {
+        gap: 40px;
+      }
+      .counter {
+        font-size: 36px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="counter-section">
+    <div>
+      <div class="counter" data-target="100">0</div>
+      <div class="label">Active Clients</div>
+    </div>
+    <div>
+      <div class="counter" data-target="10">0</div>
+      <div class="label">Team Advisors</div>
+    </div>
+    <div>
+      <div class="counter" data-target="500">0</div>
+      <div class="label">Projects Done</div>
+    </div>
+    <div>
+      <div class="counter" data-target="15">0</div>
+      <div class="label">Glorious Years</div>
+    </div>
+  </div>
+
+  <script>
+    const counters = document.querySelectorAll('.counter');
+    counters.forEach(counter => {
+      const target = +counter.getAttribute('data-target');
+      let count = 0;
+      const speed = 100; // smaller = faster
+      const increment = target / speed;
+
+      const updateCount = () => {
+        count += increment;
+        if (count < target) {
+          counter.textContent = Math.ceil(count);
+          requestAnimationFrame(updateCount);
+        } else {
+          counter.textContent = target;
+        }
+      };
+
+      updateCount();
+    });
+  </script>
+
+</body>
+</html>

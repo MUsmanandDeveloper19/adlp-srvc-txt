@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Clean Animated Counters</title>
+  <style>
+    body {
+      margin: 0;
+      background: #0e0e0e;
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+    }
+
+    .spacer {
+      height: auto; /* Scroll space above */
+    }
+
+    .counter-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .counter-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+      text-align: center;
+    }
+
+    .counter {
+      font-size: 48px;
+      font-weight: 300;
+      color: #fff;
+    }
+
+    .label {
+      margin-top: 8px;
+      font-size: 16px;
+      color: #ccc;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 768px) {
+      .counter-section {
+        gap: 30px;
+      }
+
+      .counter {
+        font-size: 36px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="spacer"></div>
+
+  <div class="counter-wrapper" id="counterSection">
+    <div class="counter-section">
+  
+    
+     
+    </div>
+  </div>
+
+  <script>
+    const section = document.getElementById('counterSection');
+    const counters = section.querySelectorAll('.counter');
+    let started = false;
+
+    function runCounters() {
+      counters.forEach(counter => {
+        const target = +counter.getAttribute('data-target');
+        let count = 0;
+        const speed = 100;
+        const increment = target / speed;
+
+        const updateCount = () => {
+          count += increment;
+          if (count < target) {
+            counter.textContent = Math.ceil(count);
+            requestAnimationFrame(updateCount);
+          } else {
+            counter.textContent = target;
+          }
+        };
+
+        updateCount();
+      });
+    }
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !started) {
+          started = true;
+          runCounters();
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.6 });
+
+    observer.observe(section);
+  </script>
+
+</body>
+</html>

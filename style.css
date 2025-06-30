@@ -1,0 +1,582 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Navbar-line-hover */
+
+nav{
+    background-color: transparent;
+    position: relative;
+    z-index: 111;
+
+}
+
+.nav-link {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 5px;
+  overflow: hidden;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background-color: #000; /* You can change this color */
+  width: 1%;
+  transition: width 0.4s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+/* Navbar-line-hover */
+
+/* NAVBAR-BURGER-MENU */
+
+/* From Uiverse.io by prakashdc */ 
+.hamburger {
+  cursor: pointer;
+}
+
+.hamburger input {
+  display: none;
+}
+
+.hamburger svg {
+  /* The size of the SVG defines the overall size */
+  height: 1.5em;
+  /* Define the transition for transforming the SVG */
+  transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.line {
+  fill: none;
+  stroke: red;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 3;
+  /* Define the transition for transforming the Stroke */
+  transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+    stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.line-top-bottom {
+  stroke-dasharray: 12 63;
+}
+
+.hamburger input:checked + svg {
+  transform: rotate(-45deg);
+}
+
+.hamburger input:checked + svg .line-top-bottom {
+  stroke-dasharray: 20 300;
+  stroke-dashoffset: -32.42;
+}
+
+
+/* NAVBAR-BURGER-MENU //*/
+
+/* DARK-MODE-CSS-CODE */
+
+:root {
+      --light-bg: #ffffff;
+      --light-text: #111111;
+      --dark-bg: #121212;
+      --dark-text: #f1f1f1;
+    }
+
+    body.dark {
+      background-color: var(--dark-bg);
+      color: var(--dark-text);
+    }
+
+    .mode-toggle {
+      position: fixed;
+      top: 400px;
+      right: 20px;
+      background: #e0e0e0;
+      border: none;
+      border-radius: 50px;
+      padding: 6px 10px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      transition: background 0.3s;
+      border-color: black;
+    }
+
+    body.dark .mode-toggle {
+      background: #333;
+    }
+
+    .mode-toggle .icon {
+      font-family: 'Material Symbols Outlined';
+      font-size: 24px;
+      color: #333;
+      transition: color 0.3s;
+    }
+
+    body.dark .mode-toggle .icon {
+      color: #fff;
+    }
+
+    .content {
+      text-align: center;
+      padding: 120px 20px;
+    }
+
+/* DARK-MODE-CSS-CODE ///*/
+
+
+/* Container-animation-css-code */
+
+ .slider-container {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      overflow: hidden;
+      object-fit: cover;
+      top: -67px;
+    }
+
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      
+      transition: opacity 1s ease-in-out;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      
+    }
+
+    .slide.active {
+      opacity: 1;
+      z-index: 1;
+    }
+
+    .slide-content {
+      position: absolute;
+      bottom: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      padding: 10px 30px;
+      font-size: 38px;
+      border-radius: 10px;
+      text-align: center;
+      white-space: nowrap;
+      z-index: 2;
+    }
+
+    .text-animate {
+      display: inline-block;
+      width: 0%;
+      overflow: hidden;
+      animation: expandText 1.5s ease forwards;
+    }
+
+    @keyframes expandText {
+      from {
+        width: 0%;
+      }
+      to {
+        width: 100%;
+      }
+    }
+
+    /* Responsive tweaks */
+    @media screen and (max-width: 768px) {
+      .slide-content {
+        font-size: 24px;
+        bottom: 15%;
+        white-space: normal;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .slide-content {
+        font-size: 18px;
+        padding: 8px 20px;
+      }
+
+      .text-animate {
+        animation: none;
+        width: 100%;
+      }
+      }
+
+/* Container-animation-css-code ///*/
+
+/* IMAGE-ROUTATE-CODE */
+
+.rotate-img {
+      /* width: 200px; */
+      animation: rotateLeftRight 3s ease-in-out infinite;
+      transform-origin: center;
+    }
+
+    @keyframes rotateLeftRight {
+      0%   { transform: rotate(0deg); }
+      25%  { transform: rotate(15deg); }
+      50%  { transform: rotate(0deg); }
+      75%  { transform: rotate(-15deg); }
+      100% { transform: rotate(0deg); }
+    }
+
+/* IMAGE-ROUTATE-CODE //*/
+
+/* Progrees-bar-code */
+
+/* social-media-marketing //*/
+    .progress-container-Social-Media-Marketing{
+      width: 75%;
+      max-width: 700px;
+      height: 7px;
+      background: #2c2c2c;
+      border-radius: 50px;
+      overflow: hidden;
+      box-shadow: 0 0 10px #000;
+      position: relative;
+    }
+
+    .progress-bar-Social-Media-Marketing{
+      height: 100%;
+      width: 10%;
+      background: linear-gradient(90deg, #00f0ff, #00ffaa);
+      border-radius: 50px;
+      animation: fillProgress 3s ease-in-out forwards;
+      box-shadow: 0 0 15px #00f0ff88;
+    }
+
+    @keyframes fillProgress {
+      from {
+        width: 10%;
+      }
+      to {
+        width: 90%;
+      }
+    }
+
+/* social-media-marketing //*/
+
+/* video-and-animation */
+
+    .progress-container-Video-and-animation{
+      width: 65%;
+      max-width: 700px;
+      height: 7px;
+      background: #2c2c2c;
+      border-radius: 50px;
+      overflow: hidden;
+      box-shadow: 0 0 10px #000;
+      position: relative;
+    }
+
+    .progress-bar-Video-and-animation{
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(90deg, #00f0ff, #00ffaa);
+      border-radius: 50px;
+      animation: fillProgress 3s ease-in-out forwards;
+      box-shadow: 0 0 15px #00f0ff88;
+    }
+
+    @keyframes fillProgress {
+      from {
+        width: 100%;
+      }
+      to {
+        width: 100%;
+      }
+    }
+
+/* video-and-animation //*/
+
+
+/* SAAS Explainer Videos */
+
+.progress-container-SAAS-Explainer-Videos{
+      width: 60%;
+      max-width: 700px;
+      height: 7px;
+      background: #2c2c2c;
+      border-radius: 50px;
+      overflow: hidden;
+      box-shadow: 0 0 10px #000;
+      position: relative;
+    }
+
+    .progress-bar-SAAS-Explainer-Videos{
+      height: 100%;
+      width: 10%;
+      background: linear-gradient(90deg, #00f0ff, #00ffaa);
+      border-radius: 50px;
+      animation: fillProgress 3s ease-in-out forwards;
+      box-shadow: 0 0 15px #00f0ff88;
+    }
+
+    @keyframes fillProgress {
+      from {
+        width: 10%;
+      }
+      to {
+        width: 90%;
+      }
+    }
+
+/* SAAS Explainer Videos ///*/
+
+/* BRANDING */
+
+.progress-container-branding{
+      width: 53%;
+      max-width: 700px;
+      height: 7px;
+      background: #2c2c2c;
+      border-radius: 50px;
+      overflow: hidden;
+      box-shadow: 0 0 10px #000;
+      position: relative;
+    }
+
+    .progress-bar-branding{
+      height: 100%;
+      width: 10%;
+      background: linear-gradient(90deg, #00f0ff, #00ffaa);
+      border-radius: 50px;
+      animation: fillProgress 3s ease-in-out forwards;
+      box-shadow: 0 0 15px #00f0ff88;
+    }
+
+    @keyframes fillProgress {
+      from {
+        width: 10%;
+      }
+      to {
+        width: 90%;
+      }
+    }
+
+/* BRANDING //*/
+
+    /* Progrees-bar-code */
+
+/* section */
+
+.adlooper-in-numbers-black-div{
+  width: 100%;
+  height: auto;
+  border: 1px solid black;
+  background-color: black;
+}
+@media screen and (max-width: 691px) {
+ .adlooper-in-numbers-black-div{
+  width: 100%;
+  height: 350px;
+  border: 1px solid black;
+  background-color: black;
+} 
+}
+
+@media screen and (max-width: 351px) {
+ .adlooper-in-numbers-black-div{
+  width: 100%;
+  height: 600px;
+  border: 1px solid black;
+  background-color: black;
+} 
+}
+
+/* adlooper-in-number-animate-fade */
+#fade{
+  text-align: center;
+  animation: fade 2s linear infinite alternate;
+}
+@keyframes fade{
+  from{
+    opacity: 0;
+    transition: all 34s;
+  }
+  to{
+    opacity: 1;
+    transition: all 34s;
+  }
+}
+/* adlooper-in-number-animate-fade */
+
+/* section */
+
+/* section */
+
+/* .adlooper-counter-css */
+    .spacer {
+      height: auto; /* Scroll space above */
+    }
+
+    .counter-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .counter-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+      text-align: center;
+    }
+
+    .counter {
+      font-size: 48px;
+      font-weight: 300;
+      color: #fff;
+    }
+
+    .label {
+      margin-top: 8px;
+      font-size: 16px;
+      color: #ccc;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 768px) {
+      .counter-section {
+        gap: 30px;
+      }
+
+      .counter {
+        font-size: 36px;
+      }
+    }
+/* .adlooper-counter-css */
+
+/* section //*/
+
+/* SECTION */
+
+/* SERVICES-SECTION-CSS-CODE */
+
+.grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .block {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .block img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .block:hover img {
+      transform: scale(1.1);
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      backdrop-filter: blur(4px);
+    }
+
+    .text {
+      position: absolute;
+      color: #fff;
+      font-weight: bold;
+      font-size: 16px;
+      padding: 10px 16px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(8px);
+      border-radius: 8px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.4s ease;
+    }
+
+    .text.left {
+      bottom: 15px;
+      left: 15px;
+    }
+
+    .text.right {
+      bottom: 15px;
+      right: 15px;
+    }
+
+    .block:hover .overlay {
+      opacity: 1;
+    }
+
+    .block:hover .text {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+/* SERVICES-SECTION-CSS-CODE */
+
+/* SECTION */
+
+
+/* SECTION */
+
+.our-clint-word{
+  justify-content: center;
+}
+
+.our-client-small-line{
+  width: 40px;
+  height: 3px;
+  border: 1px solid black;
+  background-color: black;
+  margin-left: 10px;
+  animation: our-client-small-line 2s linear infinite alternate;
+}
+@keyframes our-client-small-line{
+  from{
+    transition: all 34s;
+    opacity: 0;
+  }
+  to{
+    transition: all 34s;
+    opacity: 1;
+  }
+}
+
+/* SECTION //*/

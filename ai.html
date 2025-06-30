@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Slider Fixed</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: sans-serif;
+    }
+    .slider-container {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      overflow: hidden;
+      object-fit: cover;
+    }
+
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      
+      transition: opacity 1s ease-in-out;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      
+    }
+
+    .slide.active {
+      opacity: 1;
+      z-index: 1;
+    }
+
+    .slide-content {
+      position: absolute;
+      bottom: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      padding: 10px 30px;
+      font-size: 38px;
+      border-radius: 10px;
+      text-align: center;
+      white-space: nowrap;
+      z-index: 2;
+    }
+
+    .text-animate {
+      display: inline-block;
+      width: 0%;
+      overflow: hidden;
+      animation: expandText 1.5s ease forwards;
+    }
+
+    @keyframes expandText {
+      from {
+        width: 0%;
+      }
+      to {
+        width: 100%;
+      }
+    }
+
+    /* Responsive tweaks */
+    @media screen and (max-width: 768px) {
+      .slide-content {
+        font-size: 24px;
+        bottom: 15%;
+        white-space: normal;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .slide-content {
+        font-size: 18px;
+        padding: 8px 20px;
+      }
+
+      .text-animate {
+        animation: none;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="slider-container">
+    <div class="slide active">
+      <img src="1-scaled.jpeg" alt="Slide 1" />
+      <div class="slide-content">
+        <span class="text-animate">REVOLUTIONIZE <br />YOUR MARKETING GAME</span>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="2-scaled.webp" alt="Slide 2" />
+      <div class="slide-content">
+        <span class="text-animate">SOCIALIZE <br />YOUR BRAND <br />WITH ADLOOPER TODAY</span>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="3-scaled.webp" alt="Slide 3" />
+      <div class="slide-content">
+        <span class="text-animate">TIME TO <br />ENHANCE <br />YOUR ONLINE PRESENCE</span>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="4-scaled.webp" alt="Slide 4" />
+      <div class="slide-content">
+        <span class="text-animate">LET US <br />TELL YOUR STORY</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    let index = 0;
+
+    setInterval(() => {
+      slides[index].classList.remove('active');
+      const oldText = slides[index].querySelector('.text-animate');
+      oldText.style.width = '0%';
+
+      index = (index + 1) % slides.length;
+      slides[index].classList.add('active');
+
+      const newText = slides[index].querySelector('.text-animate');
+      newText.classList.remove('text-animate');
+      void newText.offsetWidth; // reflow to restart animation
+      newText.classList.add('text-animate');
+    }, 4000);
+  </script>
+</body>
+</html>
